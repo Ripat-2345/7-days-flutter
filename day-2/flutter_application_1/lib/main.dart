@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/started_screen1.dart';
 
 void main() {
   runApp(Day2());
@@ -7,6 +8,9 @@ void main() {
 class Day2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: StartedScreen1(),
+    );
   }
 }
