@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/rating1.dart';
+import 'package:flutter_application_1/pages/rating2.dart';
 
 void main() {
   runApp(Day5());
@@ -12,7 +13,7 @@ class Day5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Rating1(),
+      home: Rating2(),
     );
   }
 }
