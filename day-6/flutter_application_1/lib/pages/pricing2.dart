@@ -7,6 +7,8 @@ class Pricing2 extends StatefulWidget {
 }
 
 class _Pricing2State extends State<Pricing2> {
+  int indexDefault = -1;
+
   Widget header() {
     return Padding(
       padding: const EdgeInsets.only(top: 80),
@@ -46,28 +48,40 @@ class _Pricing2State extends State<Pricing2> {
   }
 
   Widget option(
+    int option,
     String text,
   ) {
-    return Container(
-      margin: EdgeInsets.only(left: 28),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: Image.asset(
-              'assets/check_icon.png',
-              width: 26,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          indexDefault = option;
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: 28),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            indexDefault == option ? check() : SizedBox(),
+            Text(
+              text,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 16,
+              ),
             ),
-          ),
-          Text(
-            text,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget check() {
+    return Padding(
+      padding: const EdgeInsets.only(right: 12),
+      child: Image.asset(
+        'assets/check_icon.png',
+        width: 26,
       ),
     );
   }
@@ -132,19 +146,19 @@ class _Pricing2State extends State<Pricing2> {
             SizedBox(
               height: 51,
             ),
-            option('Unlock Our Top Charts'),
+            option(0, 'Unlock Our Top Charts'),
             SizedBox(
               height: 26,
             ),
-            option('Save More than 1,000 Docs'),
+            option(0, 'Save More than 1,000 Docs'),
             SizedBox(
               height: 26,
             ),
-            option('24/7 Customer Support'),
+            option(0, '24/7 Customer Support'),
             SizedBox(
               height: 26,
             ),
-            option('Track Company’s Spending'),
+            option(0, 'Track Company’s Spending'),
             SizedBox(
               height: 73,
             ),
